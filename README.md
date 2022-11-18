@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# SecurityNet
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[Backend](https://github.com/SteAymar/SecurityNet-Backend)
 
-## Available Scripts
+[App Mobile](https://github.com/SteAymar/SecurityNet-Mobile)
 
-In the project directory, you can run:
+## Certificaciónde servicios de vigiladores
+### Visión general
+Desarrollar una aplicación desde la cual una empresa de seguridad puede gestionar y controlar
+la presencia de vigiladores dentro de las distintas sucursales de sus clientes.
+El sistema dispone de dos aplicaciones bien diferenciadas.
+La primera es una capa de gestión web responsive desde la cual se administran los datos de los
+clientes, sus locales a vigilar, los datos de los vigiladores y sus horarios de trabajo. Con toda
+esa información disponible un administrador del sistema asigna manualmente los distintos
+lugares y horarios de trabajo de cada vigilador para los próximos días.
+El segundo módulo del sistema se trata de una aplicación PWA/mobile que será utilizada por
+cada vigilador para asegurar su presencia en su puesto de trabajo a lo largo de su jornada
+laboral. Ello será posible a través del solicitar al vigilador la carga de un formulario que
+registrará en el momento de la carga la posición geográfica del empleado.
 
-### `npm start`
+### Stack Utilizado
+ 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+ 1. Backend:
+	 - Node.js 
+	 - JWT 
+	 - Express 
+	 - Sequelize 
+	 - PostgreSQL
+ 2. Frontend:
+	 - React.js 
+	 - ReactNative.js
+	 - Redux
+	 - MUI
+	 - Leaftlet
+### Features
+*Administración WEB:*
+ 1. Login:
+	 -Rol Administrador
+	-Rol Vigilador
+	-Perdí mi clave
+2. Clientes:
+	-Panel de alta de clientes:
+	- CUIT
+	- Razón Social
+	- Dirección Legal
+	- Fecha inicio contrato
+	- Fecha fin contrato
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+	-Direcciones de un cliente:
+	- Nombre Sucursal
+	- Calle
+	- Número
+	- Localidad
+	- Provincia
+	- Geoposicionamiento (Latitud,Longitud)
+	- 
+	-Vigiladores:
+	- Nombre
+	- Apellido
+	- CUIL
+	- Horario de ingreso días hábiles, Sábado y Domingo
+	- Cantidad de horas trabajadas por día
+	- Provincias donde está habilitado a prestar servicio
+	
+	-Calendarios por vigilador/sucursal:
+	- Asignar
+	- Mostrar
+	- Modificar los vigiladores/sucursales asignados/as
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+**En la asignación de los calendarios el vigilador a elegir debe estar dentro del rango horario que
+tiene definido para ese día.
+Las sucursales deben quedar vigiladas durante las 24 horas, los 365 días**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+*App móvil*
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Must have:
+	- Login
+	- Registrar geoposicionamiento durante el horario ingreso y salida de trabajo
+- Nice to have:
+	- Consulta días y horarios de próximas direcciones de trabajo
+	- Cargar avisos de ausencias en su calendario
+	- Consultar cantidad de horas trabajadas
+	- Aviso en horario aleatorio de carga de formulario durante horario de trabajo
+	- Captura de imagen en el momento de registrar geoposicionamiento (los datos de
+Hora/latitud/longitud/Modelo de Celular pueden tomarse de la foto que se carga )
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Sprints
+1. Sprint 1
+	- Backend: endpoints para login/ usuarios/clients/direcciones/ vigiladores
+	- Frontend: Diseño / estilos/ Menu/ Login
+2. Sprint 2
+ - Backend: Endpoints para alta/consulta/modificación de calendarios con validaciones
+	- Front End: Pantallas de login Abms de usuarios/clients/direcciones/ vigiladores
+3. Sprint 3
+	- Backend: Carga de datos de geoposicionamiento del vigilador en horario de trabajo
+desde PWA
+	- Frontend: Carga/registro calendarios por sucursal y por vigilador
+4. Sprint 4
+	-	Backend: reportes de horarios de sucursales sin cubrir, horas trabajadas por cada
+vigilador
+	- FrontEnd: App Móvil/ PWA: login, captura /carga de Geoposicionamiento
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![Aplicacion web para administradores](https://i.ibb.co/X2LwKbd/Security-Net.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![App Mobile](https://i.ibb.co/Dkjv4DR/Captura-desde-2022-10-18-20-14-28.png)
